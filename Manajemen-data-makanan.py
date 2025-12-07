@@ -94,3 +94,57 @@ def resep_makanan():
     }
 
     return data
+
+def tampilkan_menu():
+    """Fungsi untuk menampilkan menu utama"""
+    print("\n" + "="*50)
+    print("SISTEM MANAJEMEN RESEP MAKANAN")
+    print("="*50)
+    print("\nSilakan pilih resep yang ingin Anda lihat:")
+    print("1. Mie Goreng")
+    print("2. Nasi Goreng")
+    print("3. Ayam Goreng")
+    print("\nKetik 'keluar' untuk mengakhiri program")
+    print("="*50)
+
+
+def jalankan_program():
+    """Fungsi utama untuk menjalankan program"""
+    # Inisialisasi data resep
+    daftar_resep = inisialisasi_resep()
+    
+    while True:
+        # Tampilkan menu
+        tampilkan_menu()
+        
+        # Ambil input dari pengguna
+        pilihan = input("\nMasukkan pilihan Anda: ").strip().lower()
+        
+        # Cek jika pengguna ingin keluar
+        if pilihan == "keluar":
+            print("\nTerima kasih telah menggunakan sistem resep!")
+            print("Selamat memasak!\n")
+            break
+        
+        # Cek pilihan valid
+        if pilihan in ["1", "2", "3"]:
+            # Ambil resep yang dipilih
+            resep = daftar_resep[pilihan]
+            
+            # Tampilkan resep
+            tampilkan_resep(
+                resep["nama"],
+                resep["alat"],
+                resep["bahan"],
+                resep["langkah"]
+            )
+            
+            # Tunggu input untuk kembali ke menu
+            input("\nTekan Enter untuk kembali ke menu...")
+        else:
+            print("\nPilihan tidak valid! Silakan pilih 1, 2, 3, atau ketik 'keluar'")
+            input("Tekan Enter untuk melanjutkan...")
+
+
+if __name__ == "__main__":
+    jalankan_program() 
