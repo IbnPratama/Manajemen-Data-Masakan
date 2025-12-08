@@ -96,7 +96,6 @@ def resep_makanan():
     return data
 
 def tampilkan_menu():
-    """Fungsi untuk menampilkan menu utama"""
     print("\n" + "="*50)
     print("SISTEM MANAJEMEN RESEP MAKANAN")
     print("="*50)
@@ -109,7 +108,7 @@ def tampilkan_menu():
 
 
 def jalankan_program():
-    daftar_resep =resep_makanan()
+    daftar_resep = resep_makanan()
     
     while True:
         tampilkan_menu()
@@ -123,7 +122,7 @@ def jalankan_program():
         
         if pilihan in ["1", "2", "3"]:
             resep = daftar_resep[pilihan]
-
+            
             tampilkan_resep(
                 resep["nama"],
                 resep["alat"],
